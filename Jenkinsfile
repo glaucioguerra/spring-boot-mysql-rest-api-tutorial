@@ -3,7 +3,7 @@ pipeline {
      stages {
           stage("Compilar") {
                steps {
-                    mvn package
+                    sh 'mvn package'
                }
           }
      }
