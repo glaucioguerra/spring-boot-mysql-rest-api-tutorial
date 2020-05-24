@@ -1,9 +1,9 @@
 pipeline {
      agent any
      stages {
-          stage("Checkout") {
+          stage("Compilar") {
                steps {
-                    git url: 'https://github.com/glaucioguerra/spring-boot-mysql-rest-api-tutorial.git'
+                    mvn package
                }
           }
      }
