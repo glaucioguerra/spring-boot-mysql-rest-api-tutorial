@@ -3,7 +3,7 @@ services:
   app:
     build: .
     ports:
-      - "8080:8080"
+      - "8090:8080"
   mariadb:
     image: "mariadb:latest"
     ports:
