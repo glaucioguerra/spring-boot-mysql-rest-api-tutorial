@@ -13,7 +13,7 @@ pipeline {
           }
           stage("Empacotar") {
                steps {
-                    sh 'mvn package'
+                    sh './mvn package -DskipTests'
                }
           }
           stage("Iniciar images"){
