@@ -3,8 +3,8 @@ services:
   mariadb:
     image: "mariadb:latest"
     environment:
-      - MYSQL_ROOT_PASSWORD: devopsmaonamassa
-      - MYSQL_DATABASE: notes
+      - MYSQL_ROOT_PASSWORD: "devopsmaonamassa"
+      - MYSQL_DATABASE: "notes"
     ports:
       - "3306:3306"
     volumes:
