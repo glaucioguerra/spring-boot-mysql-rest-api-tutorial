@@ -6,6 +6,11 @@ pipeline {
                     sh 'mvn compile'
                }
           }
+          stage("Iniciar DB"){
+               steps {
+                    sh "docker compose start mariadb"
+               }
+          }
           stage("Empacotar") {
                steps {
                     sh 'mvn package'
