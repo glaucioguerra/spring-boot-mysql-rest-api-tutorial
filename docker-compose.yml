@@ -15,4 +15,4 @@ services:
     ports:
       - "8090:8080"
     links:
-      - "mariadb:db"
+      - "mariadb:mariadb"
