@@ -16,9 +16,10 @@ pipeline {
                     sh "docker-compose up --build -d"
                }
           }
-          stage ("wait_for_testing")
+          stage ("Esperar subida containers")
           {
                sh 'sleep 30'
+
           }
           stage("Inciar testes"){
                steps{
