@@ -16,10 +16,11 @@ pipeline {
                     sh "docker-compose up --build -d"
                }
           }
-          stage ("Esperar subida containers")
-          {
-               sh 'sleep 30'
+          stage ("Esperar subida containers"){
+               steps{
+                    sh 'sleep 30'
 
+               }
           }
           stage("Inciar testes"){
                steps{
