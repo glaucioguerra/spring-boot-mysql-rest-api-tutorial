@@ -4,7 +4,7 @@ pipeline {
           registryCredential = 'dockerhub'
           dockerImage = ''
      }
-     agent master
+     agent { label 'master' }
      stages {
           stage("Compilar") {
                steps {
