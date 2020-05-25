@@ -1,5 +1,10 @@
 pipeline {
-     agent any
+     environment {
+          registry = "glaucio/devopsmaonamassa-app"
+          registryCredential = 'dockerhub'
+          dockerImage = ''
+     }
+     agent master
      stages {
           stage("Compilar") {
                steps {
@@ -32,5 +37,21 @@ pipeline {
                     sh "docker-compose down"
                }
           }
-     }
+          stage("Build imagem App"){
+               steps{
+                    script{
+                         dockerImage =  docker.build registry + ":$BUILD_NUMBER"
+                    }
+               }
+          }
+          stage('Deploy our image') {
+               steps{
+                    script {
+                         docker.withRegistry( '', registryCredential ) {
+                         dockerImage.push()
+                         }
+               }
+          }
+          }
+    }
 }

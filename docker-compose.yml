@@ -12,6 +12,7 @@ services:
       - /root/docker/mariadb/datadir:/var/lib/mysql
   app:
     build: .
+    image: glaucio/app-devopsmaonamassa
     ports:
       - "8090:8080"
     links:
