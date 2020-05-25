@@ -8,7 +8,7 @@ pipeline {
           }
           stage("Iniciar DB"){
                steps {
-                    sh "docker-compose start mariadb"
+                    sh "docker-compose create mariadb"
                }
           }
           stage("Empacotar") {
