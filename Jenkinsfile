@@ -16,6 +16,10 @@ pipeline {
                     sh "docker-compose up --build -d"
                }
           }
+          stage ("wait_for_testing")
+          {
+               sh 'sleep 30'
+          }
           stage("Inciar testes"){
                steps{
                     sh "curl http://localhost:8090/api/notes"
