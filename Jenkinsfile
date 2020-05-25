@@ -13,7 +13,17 @@ pipeline {
           }
           stage("Iniciar images"){
                steps {
-                    sh "docker-compose up"
+                    sh "docker-compose up --build -d"
+               }
+          }
+          stage("Inciar testes"){
+               steps{
+                    sh "curl http://localhost:8090/api/notes"
+               }
+          }
+          stage("Parar containers"){
+               steps{
+                    sh "docker-compose down"
                }
           }
      }
