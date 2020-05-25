@@ -11,5 +11,10 @@ pipeline {
                     sh 'mvn package'
                }
           }
+          stage("Iniciar images"){
+               steps {
+                    sh "docker-compose up"
+               }
+          }
      }
 }
