@@ -29,7 +29,7 @@ pipeline {
           }
           stage("Inciar testes"){
                steps{
-                    sh "./testes-integracao.sh"
+                    sh "sh testes-integracao.sh"
                }
           }
           stage("Parar containers"){
