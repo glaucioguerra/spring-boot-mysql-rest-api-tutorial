@@ -29,7 +29,7 @@ pipeline {
           }
           stage("Inciar testes"){
                steps{
-                    sh "curl http://localhost:8090/api/notes"
+                    sh "./testes-integracao.sh"
                }
           }
           stage("Parar containers"){
@@ -44,7 +44,7 @@ pipeline {
                     }
                }
           }
-          stage('Deploy our image') {
+          stage('Upload da imagem para Docker Hub') {
                steps{
                     script {
                          docker.withRegistry( '', registryCredential ) {
