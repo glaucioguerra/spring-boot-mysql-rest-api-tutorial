@@ -18,7 +18,7 @@ pipeline {
           }
           stage("Forçar shutdown de instancias"){
                steps {
-                    sh "docker-compose down"
+                    sh "docker-compose down; sleep 10"
                }
           }
           stage("Iniciar images"){
