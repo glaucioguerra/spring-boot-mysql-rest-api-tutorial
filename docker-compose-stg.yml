@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mariadb:
+    image: "mariadb:latest"
+    ports:
+      - "3306:3306"
+    volumes:
+      - /root/docker/mariadb/datadir:/var/lib/mysql
+  app:
+    image: "glaucio/devopsmaonamassa-app:${TAG}"
+    depends_on: 
+    - mariadb
+    ports:
+      - "8080:8080"
+  

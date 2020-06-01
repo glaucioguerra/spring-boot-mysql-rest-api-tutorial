@@ -53,5 +53,11 @@ pipeline {
                }
           }
           }
+          stage("Iniciar serviço no docker"){
+               agent {swarm-manager}
+               steps{
+                    sh "TAG=$BUILD_NUMBER docker stack deploy -c docker-compose-stg.yml app"
+               }
+          }
     }
 }
