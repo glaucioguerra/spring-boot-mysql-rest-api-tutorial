@@ -16,6 +16,11 @@ pipeline {
                     sh 'mvn package -DskipTests'
                }
           }
+          stage("Forçar shutdown de instancias"){
+               steps {
+                    sh "docker-compose down"
+               }
+          }
           stage("Iniciar images"){
                steps {
                     sh "docker-compose up --build -d"
