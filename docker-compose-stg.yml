@@ -2,6 +2,10 @@ version: '3'
 services:
   mariadb:
     image: "mariadb:latest"
+    hostname: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: "devopsmaonamassa"
+      MYSQL_DATABASE: "notes"
     ports:
       - "3306:3306"
     volumes:
@@ -12,4 +16,3 @@ services:
     - mariadb
     ports:
       - "8080:8080"
-  
